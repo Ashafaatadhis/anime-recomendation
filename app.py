@@ -6,17 +6,24 @@ from sklearn.preprocessing import normalize
 import tensorflow as tf
 from transformers import TFBertModel, BertTokenizer
 import os
-import gdown
 
-embedding_path = "anime_ensemble_embeddings.npy"
-if not os.path.exists(embedding_path):
-    gdown.download(
-        "https://drive.google.com/uc?id=1x1RlYD1GcogqTYakXu9kUE8YUa6MAwZ5",
-        embedding_path,
-        quiet=False
-    )
 
-embeddings = np.load(embedding_path)
+os.environ["HOME"] = "/app"
+os.environ["HF_HOME"] = "/app/huggingface_cache"
+os.environ["TRANSFORMERS_CACHE"] = "/app/huggingface_cache/transformers"
+os.environ["TORCH_HOME"] = "/app/huggingface_cache/torch"
+
+from huggingface_hub import hf_hub_download
+
+
+
+file_path = hf_hub_download(
+    repo_id="ashafaatadhis/anime_ensemble_embeddings",  # dataset repo ID
+    filename="anime_ensemble_embeddings.npy",
+    repo_type="dataset"
+)
+
+embeddings = np.load(file_path)
 
 
 # --- Load all models and data ---
