@@ -1,21 +1,35 @@
 # 🎌 Anime Recommendation System with Streamlit
 
-Sebuah aplikasi web interaktif untuk merekomendasikan anime berdasarkan kemiripan sinopsis menggunakan NLP dan cosine similarity. Dibuat dengan Python, Streamlit, dan model `sBERT` (Sentence-BERT).
+Aplikasi web interaktif untuk merekomendasikan anime berdasarkan sinopsis menggunakan pendekatan ensemble NLP: SBERT, BERT, dan TF-IDF. Dibuat dengan Python, Streamlit, dan cosine similarity.
 
 ## 🚀 Fitur
 
-- 🔍 Input anime favorit via judul atau sinopsis
-- 🤖 Rekomendasi anime dengan sinopsis paling mirip
+- 🔍 Input sinopsis atau judul anime favorit
+- 🧠 Rekomendasi berbasis kemiripan semantik (dengan cosine similarity)
+- 🤖 Kombinasi model SBERT + BERT + TF-IDF untuk hasil yang lebih akurat
 - 📊 Tampilkan top-5 hasil rekomendasi
+- 🌐 Tautan langsung ke MyAnimeList
 - 💡 Berdasarkan cosine similarity antar vektor sinopsis anime
 
 ## 🧠 Teknologi
 
 - **Python 3.11+**
 - **Streamlit** untuk UI interaktif
-- **sBERT (Sentence-BERT)** untuk embedding teks
-- **scikit-learn** untuk cosine similarity
+- **sBERT (Sentence-BERT)** untuk sentence-level embeddings
+- **BERT (transformers / bert-base-uncased)** untuk contextual embeddings
+- **TF-IDF (TfidfVectorizer)** untuk representasi statistik klasik
+- **scikit-learn** scikit-learn untuk cosine similarity dan pre-processing
 - **pandas**, **numpy** untuk manipulasi data
+
+## ⚙️ Pendekatan Ensemble
+
+Model ini menggabungkan hasil dari tiga teknik representasi teks:
+
+1. ✅ SBERT: untuk menangkap kemiripan semantik antar sinopsis
+2. ✅ BERT (CLS pooling): untuk memahami konteks kalimat
+3. ✅ TF-IDF: untuk menangkap keyword penting dan statistik lokal
+
+Output ketiganya digabungkan dengan weighted average sebelum digunakan untuk menentukan kemiripan.
 
 ## 🗂 Dataset
 
