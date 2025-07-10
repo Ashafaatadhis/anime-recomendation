@@ -6,7 +6,7 @@ Sebuah aplikasi web interaktif untuk merekomendasikan anime berdasarkan kemiripa
 
 - 🔍 Input anime favorit via judul atau sinopsis
 - 🤖 Rekomendasi anime dengan sinopsis paling mirip
-- 📊 Tampilkan top-N hasil rekomendasi
+- 📊 Tampilkan top-5 hasil rekomendasi
 - 💡 Berdasarkan cosine similarity antar vektor sinopsis anime
 
 ## 🧠 Teknologi
@@ -94,4 +94,4 @@ Kunjungi versi demo di Hugging Face Spaces:
 ## 📬 Kontak
 
 Dikembangkan oleh [@ashafaatadhis](https://github.com/ashafaatadhis)  
-📧 Email: ashafaatadhis@example.com
+📧 Email: ashafaatadhis@gmail.com
